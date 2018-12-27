@@ -5,7 +5,7 @@ public class Killer extends Character{
 
     public Killer(Building whereCharacterLives) {
         super();
-        name = "Lékarnice";
+        name = "Pharmacist";
         nameAbout = "Lékárnici";
         answerToQuestion = "Já jsem to... eh... nebyla. JE TO KAMPAŇ!";
         isWoman = true;
