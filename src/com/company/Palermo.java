@@ -14,11 +14,6 @@ public class Palermo {
 
     private ArrayList<Character> prison = new ArrayList<>();
     private ArrayList<Character> killableCharacters = new ArrayList<>();
-    private ArrayList<Character> CharactersThatDied = new ArrayList<>();
-
-
-
-
     //Initialize assets
     private Building policejniStanice = new Building("Policejní stanice");
     private Building radnice = new Building("Radnice");
@@ -55,13 +50,9 @@ public class Palermo {
     // construct and start the game
     public Palermo(){
 
-
 //ve stringu jednotlivá písmena jsou charaktery. aby se to spouštělo postupně to je metoda por string která převede string do pole charakterů
 
-
         op.writeIntro();
-
-
 
         boolean playTheGame = true;
 
@@ -70,7 +61,7 @@ public class Palermo {
             setUpTown();
             while (hero.getIsAlive() && !killer.getIsInPrison()) {
 
-                System.out.println(dayCounter + ". den ráno přišel Šerif do své kanceláře na policejní stanici a rozhodoval se, co bude dělat.");
+                op.newDay(dayCounter);
                 releaseFromPrison();
 
                 activeBuilding = policejniStanice;
@@ -86,8 +77,6 @@ public class Palermo {
             op.gameOverSummary(killer, dayCounter);
 
             playTheGame = op.continuePlay();
-
-
 
         }while (playTheGame);
 
@@ -211,13 +200,8 @@ public class Palermo {
             prisoner.switchIsInPrison();
             activeBuilding.addCharacter(prisoner);
             prison.clear();
-            System.out.println("Bylo jisté, že vraždu v noci spáchal stejný pachatel jako vraždu starostky.");
-            System.out.println("To znamenalo, že osoba, která momentálně seděla v cele nemohla být hledaný vrah.");
-            if(prisoner.getGender()){
-                System.out.println(prisoner.getName() + " byla propuštěna z vězení");
-            }else {
-                System.out.println(prisoner.getName() + " byl propuštěn z vězení");
-            }
+
+            op.releaseFromPrisonOnTheNewDay(prisoner);
 
         }
     }
@@ -357,12 +341,7 @@ public class Palermo {
         potentialMurderer.switchIsInPrison();
         System.out.println();
         // change the sentence base on the gender
-        if (potentialMurderer.getGender()){
-            System.out.println("Na Šerifův rozkaz byla do vězení poslána " + potentialMurderer.getName());
-        }
-        else {
-            System.out.println("Na Šerifův rozkaz byl do vězení poslán " + potentialMurderer.getName());
-        }
+        op.sendSomeoneToPrison(potentialMurderer);
 
         prison.add(potentialMurderer);
     }
@@ -373,15 +352,13 @@ public class Palermo {
         victim.kill();
         System.out.println();
         if (victim instanceof Hero) {
-            System.out.println("Další ráno našli na policejní stanici mrtvého šerifa. Vrah vyhrál!");
+            op.heroIsDead();
             return;
         }
-        System.out.println("Ráno se Palermo probudilo k dalšímu hrůznému činnu.\n" +
-        "Další obětí neznámého vraha je " + victim.getName());
+        op.newDeadBody(victim);
 
         victim.whereCharacterLives.removeCharacterFromBuilding();
         killableCharacters.remove(victim);
-        CharactersThatDied.add(victim);
     }
 
 

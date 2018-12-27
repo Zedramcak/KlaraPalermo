@@ -68,4 +68,37 @@ public class Output {
         else
             return true;
     }
+
+    public void newDay(int dayCounter) {
+        System.out.println(dayCounter + ". den ráno přišel Šerif do své kanceláře na policejní stanici a rozhodoval se, co bude dělat.");
+    }
+
+
+    public void releaseFromPrisonOnTheNewDay(Character prisoner) {
+        System.out.println("Bylo jisté, že vraždu v noci spáchal stejný pachatel jako vraždu starostky.");
+        System.out.println("To znamenalo, že osoba, která momentálně seděla v cele nemohla být hledaný vrah.");
+        if(prisoner.getGender()){
+            System.out.println(prisoner.getName() + " byla propuštěna z vězení");
+        }else {
+            System.out.println(prisoner.getName() + " byl propuštěn z vězení");
+        }
+    }
+
+    public void heroIsDead() {
+        System.out.println("Další ráno našli na policejní stanici mrtvého šerifa. Vrah vyhrál!");
+    }
+
+    public void newDeadBody(Character victim) {
+        System.out.println("Ráno se Palermo probudilo k dalšímu hrůznému činnu.\n" +
+                "Další obětí neznámého vraha je " + victim.getName());
+    }
+
+    public void sendSomeoneToPrison(Character potentialMurderer) {
+        if (potentialMurderer.getGender()){
+            System.out.println("Na Šerifův rozkaz byla do vězení poslána " + potentialMurderer.getName());
+        }
+        else {
+            System.out.println("Na Šerifův rozkaz byl do vězení poslán " + potentialMurderer.getName());
+        }
+    }
 }
