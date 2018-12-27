@@ -228,9 +228,9 @@ public class Palermo {
                         removedItem = userInput();
                     }
                     System.out.println();
-                     NameOfRemovedItem = removedItem.getNameOfTheItem();
-                    //co s tím,, mě array list nedovolí přídavat int a jak teda z toh udělat string??
-                    activeBuilding.addItemToAB(NameOfRemovedItem);
+
+                    Item NameOfRemovedItem = hero.getInventory().get(removedItem);
+                    activeBuilding.addItem(NameOfRemovedItem);
                     hero.removeItemFromInventory(removedItem - 1);
 
                    //activeBuilding.addItem(item);
