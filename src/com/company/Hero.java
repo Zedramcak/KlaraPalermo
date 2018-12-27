@@ -33,6 +33,8 @@ public class Hero extends Character{
 
     public int sizeOfInventory() {return inventory.size();}
 
+
+
     public void listOFItemsInInventory(){
         for (int i = 0; i < inventory.size(); i++) {
             System.out.println((i+1)+" - "+inventory.get(i).getNameOfTheItem());

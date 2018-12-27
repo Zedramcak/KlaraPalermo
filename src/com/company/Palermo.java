@@ -14,6 +14,7 @@ public class Palermo {
 
     private ArrayList<Character> prison = new ArrayList<>();
     private ArrayList<Character> killableCharacters = new ArrayList<>();
+    private ArrayList<Character> CharactersThatDied = new ArrayList<>();
 
 
 
@@ -53,6 +54,29 @@ public class Palermo {
 
     // construct and start the game
     public Palermo(){
+
+        String intro1 = "Starostova manželka byla ráno nalezena mrtvá. Šerif si vytipoval několik možných pachatelů." +
+                " Podaří se mu najít vraha před tím, než si vrah najde jeho?\n";
+        String intro2 = "Vítejte ve hře\n";
+//ve stringu jednotlivá písmena jsou charaktery. aby se to spouštělo postupně to je metoda por string která převede string do pole charakterů
+        for (char c: intro1.toCharArray()) {
+            System.out.print(c);
+            //Thread.sleep(50);
+        }
+        for (char c: intro2.toCharArray()) {
+            System.out.print(c);
+            //Thread.sleep(50);
+        }
+
+
+        System.out.println("  _____        _      ______ _____  __  __  ____  _ \n" +
+                " |  __ \\ /\\   | |    |  ____|  __ \\|  \\/  |/ __ \\| |\n" +
+                " | |__) /  \\  | |    | |__  | |__) | \\  / | |  | | |\n" +
+                " |  ___/ /\\ \\ | |    |  __| |  _  /| |\\/| | |  | | |\n" +
+                " | |  / ____ \\| |____| |____| | \\ \\| |  | | |__| |_|\n" +
+                " |_| /_/    \\_\\______|______|_|  \\_\\_|  |_|\\____/(_)\n" +
+                "                                                    \n" +
+                "                                                    ");
 
         boolean playTheGame = true;
 
@@ -174,18 +198,18 @@ public class Palermo {
                     System.out.println("Který předmět si Šerif prohlédl?");
                     hero.listOFItemsInInventory();
                     System.out.println((hero.getInventory().size() + 1) + " - Žádný");
-                    int what = userInput();
-                    while (what < 1 || what > hero.getInventory().size() + 1) {
+                    int thisItem = userInput();
+                    while (thisItem < 1 || thisItem > hero.getInventory().size() + 1) {
                         System.err.println("Neplatná volba. Zadejte znovu, který předmět si Šerif prohlédl.");
-                        what = userInput();
+                        thisItem = userInput();
 
                     }
 //nahore definice dole co se dela
-                    if (what == (hero.getInventory().size() + 1)) {
+                    if (thisItem == (hero.getInventory().size() + 1)) {
                         System.out.println();
                     } else {
                         System.out.println();
-                        System.out.println(hero.exploreAnItem(what - 1));
+                        System.out.println(hero.exploreAnItem(thisItem - 1));
                     }
                 } else {
                     System.out.println();
@@ -204,9 +228,9 @@ public class Palermo {
                         removedItem = userInput();
                     }
                     System.out.println();
-                    //nelibi se tomu to what, a už jsou zkoušela všechno ale myslím že tam je problém že chce string a volba je v int
-                  // String item = Hero.exploreAnItem(removedItem);
-
+                     NameOfRemovedItem = removedItem.getNameOfTheItem();
+                    //co s tím,, mě array list nedovolí přídavat int a jak teda z toh udělat string??
+                    activeBuilding.addItemToAB(NameOfRemovedItem);
                     hero.removeItemFromInventory(removedItem - 1);
 
                    //activeBuilding.addItem(item);
@@ -396,6 +420,7 @@ public class Palermo {
 
         victim.whereCharacterLives.removeCharacterFromBuilding();
         killableCharacters.remove(victim);
+        CharactersThatDied.add(victim);
     }
 
 
@@ -455,7 +480,7 @@ public class Palermo {
         try{
             String decision = input.nextLine();
 
-            if(decision.toLowerCase().equals("exit")){
+            if(decision.toLowerCase().equals("konec")){
                 System.exit(0);
             }
             if (decision.toLowerCase().equals("napoveda")){

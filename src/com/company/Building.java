@@ -98,4 +98,6 @@ public class Building {
     public void addConnectedBuilding(Building newConnectedBuilding){
         accessibleBuildings.add(newConnectedBuilding);
     }
+
+    public void addItemToAB(Item item){itemsInBuilding.add(item);}
 }
