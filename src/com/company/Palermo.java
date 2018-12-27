@@ -8,7 +8,7 @@ public class Palermo {
 //scenner aby to prijalo info zadane uzivatelem
     private Scanner input = new Scanner(System.in);
     private int dayCounter;
-
+    private Output op = new Output();
 
     private Building activeBuilding;
 
@@ -55,28 +55,13 @@ public class Palermo {
     // construct and start the game
     public Palermo(){
 
-        String intro1 = "Starostova manželka byla ráno nalezena mrtvá. Šerif si vytipoval několik možných pachatelů." +
-                " Podaří se mu najít vraha před tím, než si vrah najde jeho?\n";
-        String intro2 = "Vítejte ve hře\n";
+
 //ve stringu jednotlivá písmena jsou charaktery. aby se to spouštělo postupně to je metoda por string která převede string do pole charakterů
-        for (char c: intro1.toCharArray()) {
-            System.out.print(c);
-            //Thread.sleep(50);
-        }
-        for (char c: intro2.toCharArray()) {
-            System.out.print(c);
-            //Thread.sleep(50);
-        }
 
 
-        System.out.println("  _____        _      ______ _____  __  __  ____  _ \n" +
-                " |  __ \\ /\\   | |    |  ____|  __ \\|  \\/  |/ __ \\| |\n" +
-                " | |__) /  \\  | |    | |__  | |__) | \\  / | |  | | |\n" +
-                " |  ___/ /\\ \\ | |    |  __| |  _  /| |\\/| | |  | | |\n" +
-                " | |  / ____ \\| |____| |____| | \\ \\| |  | | |__| |_|\n" +
-                " |_| /_/    \\_\\______|______|_|  \\_\\_|  |_|\\____/(_)\n" +
-                "                                                    \n" +
-                "                                                    ");
+        op.writeIntro();
+
+
 
         boolean playTheGame = true;
 
@@ -97,43 +82,19 @@ public class Palermo {
                     dayCounter++;
                 }
             }
-            gameOverSummary();
 
-            System.out.println();
-            System.out.println("Přejete si hrát znovu?");
-            System.out.println("1 - ANO");
-            System.out.println("2 - NE");
-            int decision = userInput();
-            while ( !(decision ==1 || decision == 2) ){
-                System.err.println("Neplatná volba");
-                //dává možnost napsat znovu proměnnou a vrací na while
-                decision = userInput();
-            }
-            if (decision == 2)
-                playTheGame = false;
+            op.gameOverSummary(killer, dayCounter);
+
+            playTheGame = op.continuePlay();
+
+
 
         }while (playTheGame);
 
     }
 
 
-    private void gameOverSummary(){
-        if (killer.getIsInPrison()){
-            if(dayCounter==1) {
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala k vraždě.");
-            }
-            else if (dayCounter==2){
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala k oboum vraždám.");
-            }
-            else{
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala ke všem " + dayCounter + " vraždám.");
-            }
-            System.out.println("Gratulujeme! Podařilo se Vám vypátrat vraha.");
-        }
-        else{
-            System.out.println("Nepodařilo se Vám vypatrát pravého vyníka. Hra končí. Zkuste to znovu");
-        }
-    }
+
 
 
     private void heroDecision(){

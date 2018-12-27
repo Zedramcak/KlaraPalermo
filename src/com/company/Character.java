@@ -2,6 +2,9 @@ package com.company;
 
 public class Character {
 
+
+
+
     protected String name;
     protected String answerToQuestion;
     protected String nameAbout;
