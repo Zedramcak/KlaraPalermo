@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Klara_Palermo:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Klara_Palermo_jar</output-path>
+    <root id="archive" name="Klara_Palermo.jar">
+      <element id="module-output" name="Klara_Palermo" />
+    </root>
+  </artifact>
+</component>
