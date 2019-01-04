@@ -18,22 +18,35 @@ public class CharacterTest {
 
     @Test
     public void getAnswerToQuestion() {
+        Building building = new Building("b1");
+        Character smbd = new Character("smbd", "smbd","smbd",true,building);
+        assertEquals("smbd",smbd.getAnswerToQuestion());
     }
 
     @Test
     public void getName() {
+
+
     }
 
     @Test
     public void getIsInPrison() {
+        Building building = new Building("b1");
+        Character smbd = new Character("smbd", "smbd","smbd",true,building);
+        assertEquals(false,smbd.getIsInPrison());
+
     }
 
     @Test
     public void switchIsInPrison() {
+
     }
 
     @Test
     public void getIsAlive() {
+        Building building = new Building("b1");
+        Character smbd = new Character("smbd", "smbd","smbd",true,building);
+        assertEquals(true,smbd.getIsAlive());
     }
 
     @Test
@@ -46,5 +59,8 @@ public class CharacterTest {
 
     @Test
     public void getGender() {
+        Building building = new Building("b1");
+        Character smbd = new Character("smbd", "smbd","smbd",true,building);
+        assertEquals(true,smbd.getGender());
     }
 }

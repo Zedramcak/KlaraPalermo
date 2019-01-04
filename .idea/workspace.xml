@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Palermo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state relative-caret-position="-6836">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/PalermoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="454">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Output.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+            <state relative-caret-position="1066">
+              <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -56,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="437">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -65,8 +65,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/CharacterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="833">
+              <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/BuildingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -81,28 +90,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Building.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-748">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/BuildingTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="437">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding>
                 <element signature="e#664#665#0" expanded="true" />
                 <element signature="e#696#697#0" expanded="true" />
@@ -114,8 +105,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/HeroTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="119">
+              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Building.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-719">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -147,15 +147,15 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Item.java" />
         <option value="$PROJECT_DIR$/src/com/company/Hero.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Building.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Character.java" />
         <option value="$PROJECT_DIR$/src/com/company/Output.java" />
         <option value="$PROJECT_DIR$/src/com/company/Palermo.java" />
         <option value="$PROJECT_DIR$/src/com/company/Killer.java" />
         <option value="$PROJECT_DIR$/src/com/company/PalermoTest.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Building.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Character.java" />
         <option value="$PROJECT_DIR$/src/com/company/CharacterTest.java" />
-        <option value="$PROJECT_DIR$/src/com/company/BuildingTest.java" />
         <option value="$PROJECT_DIR$/src/com/company/HeroTest.java" />
+        <option value="$PROJECT_DIR$/src/com/company/BuildingTest.java" />
       </list>
     </option>
   </component>
@@ -187,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -210,7 +211,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,7 +218,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546625834874" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546631164089" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -251,17 +251,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PalermoTest.addingItemsToBuildingTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="Klara_Palermo" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.BuildingTest.isSomeoneInTheBuilding">
     <configuration name="All in Klara_Palermo" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Klara_Palermo" />
       <option name="PACKAGE_NAME" value="" />
@@ -273,7 +263,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PalermoTest.addingItemsToBuildingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuildingTest.isSomeoneInTheBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Klara_Palermo" />
       <extension name="coverage">
         <pattern>
@@ -282,14 +272,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.PalermoTest" />
-      <option name="METHOD_NAME" value="addingItemsToBuildingTest" />
+      <option name="MAIN_CLASS_NAME" value="com.company.BuildingTest" />
+      <option name="METHOD_NAME" value="isSomeoneInTheBuilding" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PalermoTest.addingToTownTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CharacterTest.getGender" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Klara_Palermo" />
       <extension name="coverage">
         <pattern>
@@ -298,30 +288,76 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.PalermoTest" />
-      <option name="METHOD_NAME" value="addingToTownTest" />
+      <option name="MAIN_CLASS_NAME" value="com.company.CharacterTest" />
+      <option name="METHOD_NAME" value="getGender" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Klara_Palermo.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Klara_Palermo_jar/Klara_Palermo.jar" />
-      <method v="2" />
+    <configuration name="HeroTest.exploreAnItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Klara_Palermo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.HeroTest" />
+      <option name="METHOD_NAME" value="exploreAnItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HeroTest.isSomethingInInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Klara_Palermo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.HeroTest" />
+      <option name="METHOD_NAME" value="isSomethingInInventory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HeroTest.sizeOfInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Klara_Palermo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.HeroTest" />
+      <option name="METHOD_NAME" value="sizeOfInventory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JAR Application.Klara_Palermo.jar" />
       <item itemvalue="JUnit.All in Klara_Palermo" />
-      <item itemvalue="JUnit.PalermoTest.addingToTownTest" />
-      <item itemvalue="JUnit.PalermoTest.addingItemsToBuildingTest" />
+      <item itemvalue="JUnit.CharacterTest.getGender" />
+      <item itemvalue="JUnit.HeroTest.exploreAnItem" />
+      <item itemvalue="JUnit.HeroTest.isSomethingInInventory" />
+      <item itemvalue="JUnit.HeroTest.sizeOfInventory" />
+      <item itemvalue="JUnit.BuildingTest.isSomeoneInTheBuilding" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PalermoTest.addingItemsToBuildingTest" />
-        <item itemvalue="JUnit.PalermoTest.addingToTownTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JAR Application.Klara_Palermo.jar" />
+        <item itemvalue="JUnit.BuildingTest.isSomeoneInTheBuilding" />
+        <item itemvalue="JUnit.HeroTest.isSomethingInInventory" />
+        <item itemvalue="JUnit.HeroTest.sizeOfInventory" />
+        <item itemvalue="JUnit.HeroTest.exploreAnItem" />
+        <item itemvalue="JUnit.CharacterTest.getGender" />
       </list>
     </recent_temporary>
   </component>
@@ -346,20 +382,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Klara_Palermo - 2019.01.04 at 19h 07m 53s.xml">
-      <configuration name="All in Klara_Palermo" configurationId="JUnit" />
+    <history-entry file="HeroTest_exploreAnItem - 2019.01.04 at 20h 29m 02s.xml">
+      <configuration name="HeroTest.exploreAnItem" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PalermoTest_addingToTownTest - 2019.01.04 at 19h 08m 13s.xml">
-      <configuration name="PalermoTest.addingToTownTest" configurationId="JUnit" />
+    <history-entry file="HeroTest_exploreAnItem - 2019.01.04 at 20h 30m 22s.xml">
+      <configuration name="HeroTest.exploreAnItem" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PalermoTest_addingItemsToBuildingTest - 2019.01.04 at 19h 15m 03s.xml">
-      <configuration name="PalermoTest.addingItemsToBuildingTest" configurationId="JUnit" />
+    <history-entry file="HeroTest_exploreAnItem - 2019.01.04 at 20h 30m 49s.xml">
+      <configuration name="HeroTest.exploreAnItem" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PalermoTest_addingItemsToBuildingTest - 2019.01.04 at 19h 15m 11s.xml">
-      <configuration name="PalermoTest.addingItemsToBuildingTest" configurationId="JUnit" />
+    <history-entry file="HeroTest_exploreAnItem - 2019.01.04 at 20h 31m 23s.xml">
+      <configuration name="HeroTest.exploreAnItem" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PalermoTest_addingItemsToBuildingTest - 2019.01.04 at 19h 17m 03s.xml">
-      <configuration name="PalermoTest.addingItemsToBuildingTest" configurationId="JUnit" />
+    <history-entry file="HeroTest_exploreAnItem - 2019.01.04 at 20h 32m 37s.xml">
+      <configuration name="HeroTest.exploreAnItem" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeroTest_isSomethingInInventory - 2019.01.04 at 20h 35m 27s.xml">
+      <configuration name="HeroTest.isSomethingInInventory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeroTest_sizeOfInventory - 2019.01.04 at 20h 37m 06s.xml">
+      <configuration name="HeroTest.sizeOfInventory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeroTest_sizeOfInventory - 2019.01.04 at 20h 38m 24s.xml">
+      <configuration name="HeroTest.sizeOfInventory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeroTest_isSomethingInInventory - 2019.01.04 at 20h 39m 30s.xml">
+      <configuration name="HeroTest.isSomethingInInventory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BuildingTest_isSomeoneInTheBuilding - 2019.01.04 at 20h 41m 21s.xml">
+      <configuration name="BuildingTest.isSomeoneInTheBuilding" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -372,10 +423,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1874" height="1216" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17750826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18003026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -384,8 +435,8 @@
       <window_info id="Learn" order="6" weight="0.32942432" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32779318" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.46999076" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3268921" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46859902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39923954" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,24 +477,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.2/junit-3.8.2.jar!/junit/framework/TestSuite.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.2/junit-3.8.2.jar!/junit/framework/TestSuite.class" />
+    <entry file="file://$PROJECT_DIR$/src/com/company/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#2331#2332#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding>
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="437">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
@@ -456,53 +494,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Building.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="-719">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/PalermoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Palermo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="454">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/HeroTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Palermo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/BuildingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/CharacterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/PalermoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="-6836">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -511,8 +521,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Output.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        <state relative-caret-position="1066">
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/HeroTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/CharacterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/BuildingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
         </state>
       </provider>
     </entry>

@@ -310,11 +310,11 @@ public class Palermo {
     private void setNewActiveBuilding(){
         activeBuilding.showConnectedBuilding();
         int decision = userInput();
-        while (decision>(activeBuilding.NumberOfConnectedBuilding()+1)||decision<1){
+        while (decision>(activeBuilding.numberOfConnectedBuilding()+1)||decision<1){
             System.err.println("Neplatná volba. Zadejte znovu, kam se má šerif vypravit");
             decision = userInput();
         }
-        if (decision==activeBuilding.NumberOfConnectedBuilding()+1){
+        if (decision==activeBuilding.numberOfConnectedBuilding()+1){
             System.out.println();
         }
         else{

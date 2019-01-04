@@ -62,7 +62,7 @@ public class Building {
         return nameOfTheBuilding;
     }
 
-    public int NumberOfConnectedBuilding(){
+    public int numberOfConnectedBuilding(){
         return accessibleBuildings.size();
     }
 

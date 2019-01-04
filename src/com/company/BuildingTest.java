@@ -18,6 +18,7 @@ public class BuildingTest {
 
     @Test
     public void inspectTheBuilding() {
+
     }
 
     @Test
@@ -33,50 +34,67 @@ public class BuildingTest {
     }
 
     @Test
-    public void removeCharacterFromBuilding() {
-    }
-
-    @Test
     public void getNameOfTheBuilding() {
+        Building building = new Building("b1");
+        assertEquals("b1",building.getNameOfTheBuilding());
     }
 
     @Test
-    public void numberOfConnectedBuilding() {
+    public void numberOfConnectedBuildingTest() {
+        Building building = new Building("b1");
+        assertEquals(0,building.numberOfConnectedBuilding());
+
+        building.addConnectedBuilding(new Building("b2"));
+        assertEquals(1,building.numberOfConnectedBuilding());
+
+
+        building.addConnectedBuilding(new Building("b3"));
+        assertEquals(2,building.numberOfConnectedBuilding());
     }
 
     @Test
     public void moveToConnectedBuilding() {
+        Building building = new Building("b1");
+        Building building2 = new Building("b2");
+        building.addConnectedBuilding(building2);
+
+        assertEquals(building2,building.moveToConnectedBuilding(0));
     }
 
     @Test
     public void areThereItems() {
+        Building building = new Building("b1");
+        Item item = new Item("sm","sm","sm");
+        assertEquals(false, building.areThereItems());
+        building.addItem(item);
+        assertEquals(true, building.areThereItems());
+
     }
 
     @Test
     public void numberOfItems() {
-    }
+        Building building = new Building("b1");
+        Item item = new Item("sm","sm","sm");
+        assertEquals(0, building.numberOfItems());
+        building.addItem(item);
+        assertEquals(1, building.numberOfItems());
+        building.addItem(item);
+        assertEquals(2, building.numberOfItems());
+        building.removeIs;
+        assertEquals(2, building.numberOfItems());
 
-    @Test
-    public void itemsInBuilding() {
     }
 
     @Test
     public void isSomeoneInTheBuilding() {
+        Building building = new Building("b1");
+        Character smbd = new Character("smbd","smbd","smbd",true,building);
+        assertEquals(false, building.isSomeoneInTheBuilding());
+        building.addCharacter(smbd);
+        assertEquals(true, building.isSomeoneInTheBuilding());
+        building.removeCharacterFromBuilding();
+        assertEquals(false,building.isSomeoneInTheBuilding());
     }
 
-    @Test
-    public void getCharactersInBuilding() {
-    }
 
-    @Test
-    public void addCharacter() {
-    }
-
-    @Test
-    public void addItem() {
-    }
-
-    @Test
-    public void addConnectedBuilding() {
-    }
 }
