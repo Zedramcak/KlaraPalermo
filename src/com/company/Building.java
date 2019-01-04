@@ -7,6 +7,9 @@ public class Building {
     private String nameOfTheBuilding;
     private ArrayList<Character> charactersInBuilding;
     private ArrayList<Item> itemsInBuilding;
+
+
+
     private ArrayList<Building> accessibleBuildings;
 
     public Building(String nameOfTheBuilding){
@@ -17,46 +20,18 @@ public class Building {
         accessibleBuildings = new ArrayList<>();
     }
 
-
-    public void inspectTheBuilding(){
-        if (itemsInBuilding.isEmpty()){
-            System.out.println("V budově není nic zajímavého");
-        }
-        else if(itemsInBuilding.size()==1){
-            System.out.println("Šerif si všiml že v místnosti je podezřele vypadající " + itemsInBuilding.get(0).getNameOfTheItem());
-        }
-        else{
-            System.out.println("Šerifa zaujali tyto předměty");
-            for (Item item: itemsInBuilding ) {
-                System.out.print(item.getNameOfTheItem() + " " );
-            }
-            System.out.println();
-        }
-    }
-
     public String exploreItem(int index){
-        return itemsInBuilding.get(index).getDescriptionOfTheItemWhenFound();
+        return itemsInBuilding().get(index).getDescriptionOfTheItemWhenFound();
     }
 
     public Item takeAnItem(int index){
-        Item takenItem = itemsInBuilding.get(index-1);
-        itemsInBuilding.remove(index-1);
-        System.out.println("Šerif si vzal " + takenItem.getNameOfTheItem());
+        Item takenItem = itemsInBuilding().get(index-1);
+        itemsInBuilding().remove(index-1);
         return takenItem;
     }
 
-    public void showConnectedBuilding(){
-        System.out.println();
-        System.out.println("Šerif se odsud mohl vydat do těchto budov:");
-        for (int i = 0; i < accessibleBuildings.size(); i++) {
 
-            System.out.printf("%d - %S\n",(i+1), accessibleBuildings.get(i).getNameOfTheBuilding());
-
-        }
-        System.out.println( accessibleBuildings.size()+1 + " - zůstat na místě");
-    }
-
-    public void removeCharacterFromBuilding(){charactersInBuilding.clear();}
+    public void removeCharacterFromBuilding(){getCharactersInBuilding().clear();}
 
     public String getNameOfTheBuilding(){
         return nameOfTheBuilding;
@@ -97,5 +72,13 @@ public class Building {
 
     public void addConnectedBuilding(Building newConnectedBuilding){
         accessibleBuildings.add(newConnectedBuilding);
+    }
+
+    public ArrayList<Item> getItemsInBuilding() {
+        return itemsInBuilding;
+    }
+
+    public ArrayList<Building> getAccessibleBuildings() {
+        return accessibleBuildings;
     }
 }

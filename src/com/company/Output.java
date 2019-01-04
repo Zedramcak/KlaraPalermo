@@ -101,4 +101,140 @@ public class Output {
             System.out.println("Na Šerifův rozkaz byl do vězení poslán " + potentialMurderer.getName());
         }
     }
+
+    public void writeWhoIsInTheBuilding(Building activeBuilding) {
+        if (activeBuilding.isSomeoneInTheBuilding()&&!activeBuilding.getCharactersInBuilding().get(0).getIsInPrison()){
+            System.out.println("Nachází se zde " + activeBuilding.getCharactersInBuilding().get(0).getName());
+        }
+        else{
+            System.out.println("Nikdo tu není.");
+        }
+    }
+
+    public void whereHeGoesNext(Building activeBuilding) {
+        System.out.println("\nDalší šerifovou zastávkou byla " + activeBuilding.getNameOfTheBuilding() + "\n");
+    }
+
+
+    public void listItemsInTheBuilding(Building activeBuilding) {
+        if (activeBuilding.itemsInBuilding().isEmpty()){
+            System.out.println("V budově není nic zajímavého");
+        }
+        else if(activeBuilding.itemsInBuilding().size()==1){
+            System.out.println("Šerif si všiml že v místnosti je podezřele vypadající " + activeBuilding.itemsInBuilding().get(0).getNameOfTheItem());
+        }
+        else{
+            System.out.println("Šerifa zaujali tyto předměty");
+            for (Item item: activeBuilding.itemsInBuilding() ) {
+                System.out.print(item.getNameOfTheItem() + " " );
+            }
+            System.out.println();
+        }
+    }
+
+
+    public void itemToken(Building activeBuilding, int chosenItemToTake) {
+        System.out.println("Šerif si vzal " + activeBuilding.itemsInBuilding().get(chosenItemToTake).getNameOfTheItem());
+    }
+
+
+    public void showConnectedBuildings(Building activeBuilding) {
+        System.out.println();
+        System.out.println("Šerif se odsud mohl vydat do těchto budov:");
+        for (int i = 0; i < activeBuilding.getAccessibleBuildings().size(); i++) {
+
+            System.out.printf("%d - %S\n",(i+1), activeBuilding.getAccessibleBuildings().get(i).getNameOfTheBuilding());
+
+        }
+        System.out.println( activeBuilding.getAccessibleBuildings().size()+1 + " - zůstat na místě");
+    }
+
+    public void wrongInput(){
+        System.err.println("Neplatná volba");
+    }
+
+    public void mainDecision() {
+        System.out.println();
+        System.out.println("Co se Šerif rozhodl udělat?");
+        System.out.println("1 - přesunout so do jiné budovy");
+        System.out.println("2 - porozhlédnout se po budově");
+        System.out.println("3 - promluvit si s obyvateli domu");
+        System.out.println("4 - prohlédnout si inventář");
+    }
+
+    public void emptyBuilidng() {
+        System.out.println();
+        System.out.println("Nikdo z podezřelých tu není.");
+    }
+
+    public void inventoryDecision() {
+        System.out.println();
+        System.out.println(
+                "Jaké byly jeho další kroky?\n" +
+                        "1 - Prohlednout si veci v inventari\n" +
+                        "2 - Odebrat vec z inventare");
+    }
+
+    public void listOfItemsInInventory(Hero hero, int io){
+        System.out.println();
+        if (io == 1) {
+            System.out.println("Který předmět si Šerif prohlédl?");
+        }
+        else {
+            System.out.println("Který předmět chcete odebrat?");
+        }
+        for (int i = 0; i < hero.getInventory().size(); i++) {
+            System.out.println((i+1)+" - "+hero.getInventory().get(i).getNameOfTheItem());
+        }
+        System.out.println((hero.getInventory().size() + 1) + " - Žádný");
+    }
+
+    public void emptyInventory() {
+        System.out.println("Inventář je prázdný");
+    }
+
+    public void interactDecision(Character suspect) {
+        System.out.println();
+        System.out.println("Šerif přistoupil k "+suspect.getNameAbout()+"\n");
+        System.out.println(
+                "Jaké byly jeho další kroky?\n" +
+                        "1 - Výslech\n" +
+                        "2 - Poslat do vězení\n" +
+                        "3 - Nechat být");
+    }
+
+    public void interviewWithASuspect(Character suspect) {
+        System.out.println("Šerif: Co mi můžete říct o té vraždě?");
+        System.out.println(suspect.getName() + ": " + suspect.getAnswerToQuestion() + "\n");
+    }
+
+    public void buildingItemsDecision() {
+        System.out.println();
+        System.out.println("Co se rozhodl Šerif udělat?");
+        System.out.println("1 - vzít si některý z předmětů\n" +
+                "2 - nechat předměty být\n" +
+                "3 - prohlédnout si předměty");
+    }
+
+    public void fullInventory() {
+        System.err.println("Inventar je plny, nejdrive z inventare neco odeberte") ;
+    }
+
+    public void itemToBeTaken(Building activeBuilding, int io) {
+        System.out.println();
+        if (io == 1) {
+            System.out.println("Který předmět si Šerif prohlédl?");
+        }
+        else {
+            System.out.println("Co si Šerif vzal?");
+        }
+        for (int i = 0; i < activeBuilding.numberOfItems(); i++) {
+            System.out.printf("%d - %S\n",(i+1), activeBuilding.itemsInBuilding().get(i).getNameOfTheItem());
+        }
+    }
+
+    public void leaveItem() {
+        System.out.println();
+        System.out.println("Šerif nechal vše tak jak bylo");
+    }
 }

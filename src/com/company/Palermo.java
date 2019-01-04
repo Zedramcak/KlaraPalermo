@@ -91,17 +91,13 @@ public class Palermo {
 
         do{
 
-            System.out.println();
-            System.out.println("Co se Šerif rozhodl udělat?");
-            System.out.println("1 - přesunout so do jiné budovy");
-            System.out.println("2 - porozhlédnout se po budově");
-            System.out.println("3 - promluvit si s obyvateli domu");
-            System.out.println("4 - prohlédnout si inventář");
+
+            op.mainDecision();
 
             int decision = userInput();
 
             while(decision<1||decision>4){
-                System.err.println("Neplatná volba. Zadejte znovu, co se Šerif rozhodl udělat");
+                op.wrongInput();
                 decision = userInput();
             }
 //switch bere promenou konkretne decision a rozhoduje se co udela podle case a ten vzdy konci break!
@@ -116,8 +112,8 @@ public class Palermo {
                     if (activeBuilding.isSomeoneInTheBuilding()) {
                         heroSendSomeoneToPrison = interactWithCharacters(activeBuilding.getCharactersInBuilding().get(0));
                     }else{
-                        System.out.println();
-                        System.out.println("Nikdo z podezřelých tu není.");
+
+                        op.emptyBuilidng();
                     }
                     break;
                 case 4:
@@ -131,26 +127,22 @@ public class Palermo {
 
 
     private void exploreInventory() {
-        System.out.println();
-        System.out.println(
-                "Jaké byly jeho další kroky?\n" +
-                        "1 - Prohlednout si veci v inventari\n" +
-                        "2 - Odebrat vec z inventare");
+
+        op.inventoryDecision();
         int decision = userInput();
         while (decision < 1 || decision > 2) {
-            System.err.println("Neplatná volba. Zadejte znovu, co se Šerif rozhodl udělat");
+            op.wrongInput();
             decision = userInput();
         }
         switch (decision) {
             case 1:
                 if (hero.isSomethingInInventory()) {
-                    System.out.println();
-                    System.out.println("Který předmět si Šerif prohlédl?");
-                    hero.listOFItemsInInventory();
-                    System.out.println((hero.getInventory().size() + 1) + " - Žádný");
+
+                    op.listOfItemsInInventory(hero, 1);
+
                     int thisItem = userInput();
                     while (thisItem < 1 || thisItem > hero.getInventory().size() + 1) {
-                        System.err.println("Neplatná volba. Zadejte znovu, který předmět si Šerif prohlédl.");
+                        op.wrongInput();
                         thisItem = userInput();
 
                     }
@@ -163,18 +155,17 @@ public class Palermo {
                     }
                 } else {
                     System.out.println();
-                    System.out.println("Inventář je prázdný");
+                    op.emptyInventory();
                 }
                 break;
             case 2:
                 if (hero.isSomethingInInventory()) {
                     System.out.println();
-                    System.out.println("Který předmět chcete odebrat?");
-                    hero.listOFItemsInInventory();
-                    System.out.println((hero.getInventory().size() + 1) + " - Žádný");
+
+                    op.listOfItemsInInventory(hero, 0);
                     int removedItem = userInput();
                     while (removedItem < 1 || removedItem > hero.getInventory().size() + 1) {
-                        System.err.println("Neplatná volba. Zadejte znovu, který předmět chcete odbrat.");
+                        op.wrongInput();
                         removedItem = userInput();
                     }
                     System.out.println();
@@ -186,7 +177,7 @@ public class Palermo {
                    //activeBuilding.addItem(item);
                 } else {
                     System.out.println();
-                    System.out.println("Inventář je prázdný");
+                    op.emptyInventory();
                 }
                 break;
 
@@ -208,21 +199,16 @@ public class Palermo {
 
 
     private boolean interactWithCharacters(Character suspect){
-        System.out.println();
-        System.out.println("Šerif přistoupil k "+suspect.getNameAbout()+"\n");
-        System.out.println(
-                "Jaké byly jeho další kroky?\n" +
-                "1 - Výslech\n" +
-                "2 - Poslat do vězení\n" +
-                "3 - Nechat být");
+        op.interactDecision(suspect);
+
         int decision = userInput();
         while (decision<1||decision>3){
-            System.err.println("Neplatná volba. Zadejte znovu, co se Šerif rozhodl udělat");
+            op.wrongInput();
             decision = userInput();
         }
         switch (decision){
             case 1:
-                interviewWithASuspect(suspect);
+                op.interviewWithASuspect(suspect);
                 break;
                 //tady je to boolean aby fungoval hero decision
             case 2:
@@ -236,26 +222,15 @@ public class Palermo {
 
     }
 
-
-    private void interviewWithASuspect(Character suspect){
-        System.out.println("Šerif: Co mi můžete říct o té vraždě?");
-        System.out.println(suspect.getName() + ": " + suspect.getAnswerToQuestion() + "\n");
-    }
-
-
     private void itemsInBuilding(){
-        activeBuilding.inspectTheBuilding();
+        op.listItemsInTheBuilding(activeBuilding);
         //kdyz je to boolean neumusim data se rovna porotze mam nastaveny vychozi a s tim se pocita
         if (activeBuilding.areThereItems()) {
-            System.out.println();
-            System.out.println("Co se rozhodl Šerif udělat?");
-            System.out.println("1 - vzít si některý z předmětů\n" +
-                    "2 - nechat předměty být\n" +
-                    "3 - prohlédnout si předměty");
+            op.buildingItemsDecision();
             int decision = userInput();
 
             while(decision<1||decision>3){
-                System.err.println("Neplatná volba. Zadejte znovu, co se Šerif rozhodl udělat");
+                op.wrongInput();
                 decision = userInput();
             }
 
@@ -268,36 +243,32 @@ public class Palermo {
     private void interactWithAnItem(int decision){
         switch (decision){
             case 1:
-                System.out.println();
-                System.out.println("Co si Šerif vzal?");
-                for (int i = 0; i < activeBuilding.numberOfItems(); i++) {
-                    System.out.printf("%d - %S\n",(i+1), activeBuilding.itemsInBuilding().get(i).getNameOfTheItem());
-                }
+                op.itemToBeTaken(activeBuilding, 1);
+
                 int chosenItemToTake = userInput();
                 while (chosenItemToTake>=activeBuilding.numberOfItems()+1||chosenItemToTake<1){
-                    System.err.println("Neplatná volba. Zadejte znovu, který předmět si Šerif vzal");
+                    op.wrongInput();
                     chosenItemToTake = userInput();
                 }
-                if( hero.sizeOfInventory() > 1)
-                {System.err.println("Inventar je plny, nejdrive z inventare neco odeberte") ; }
+                if( hero.sizeOfInventory() > 1) {
+
+                    op.fullInventory();
+                }
                 else{
-                hero.addItemToInventory(activeBuilding.takeAnItem(chosenItemToTake));}
+                    op.itemToken(activeBuilding, chosenItemToTake);
+                    hero.addItemToInventory(activeBuilding.takeAnItem(chosenItemToTake));}
                 break;
 
             case 2:
-                System.out.println();
-                System.out.println("Šerif nechal vše tak jak bylo");
+                op.leaveItem();
                 break;
 
             case 3:
-                System.out.println();
-                System.out.println("Který předmět si Šerif prohlédl?");
-                for (int i = 0; i < activeBuilding.numberOfItems(); i++) {
-                    System.out.printf("%d - %S\n",(i+1), activeBuilding.itemsInBuilding().get(i).getNameOfTheItem());
-                }
+                op.itemToBeTaken(activeBuilding, 0);
+
                 int chosenItemToInspect = userInput();
                 while (chosenItemToInspect>=activeBuilding.numberOfItems()+1||chosenItemToInspect<1){
-                    System.err.println("Neplatná volba. Zadejte znovu, který předmět si Šerif prohlédl");
+                    op.wrongInput();
                     chosenItemToInspect = userInput();
                 }
                 System.out.println(activeBuilding.itemsInBuilding().get(chosenItemToInspect-1).getDescriptionOfTheItemWhenFound()+"\n");
@@ -308,10 +279,10 @@ public class Palermo {
 
     // method to change the active building. Making sure, that the input is correct
     private void setNewActiveBuilding(){
-        activeBuilding.showConnectedBuilding();
+        op.showConnectedBuildings(activeBuilding);
         int decision = userInput();
         while (decision>(activeBuilding.NumberOfConnectedBuilding()+1)||decision<1){
-            System.err.println("Neplatná volba. Zadejte znovu, kam se má šerif vypravit");
+            op.wrongInput();
             decision = userInput();
         }
         if (decision==activeBuilding.NumberOfConnectedBuilding()+1){
@@ -319,8 +290,7 @@ public class Palermo {
         }
         else{
             activeBuilding = activeBuilding.moveToConnectedBuilding(decision-1);
-            System.out.println();
-            System.out.println("Další šerifovou zastávkou byla " + activeBuilding.getNameOfTheBuilding() + "\n");
+            op.whereHeGoesNext(activeBuilding);
             whoIsInTheBuilding();
         }
     }
@@ -328,12 +298,7 @@ public class Palermo {
     // checks and inform if there is someone in the building
     private void whoIsInTheBuilding(){
         System.out.println();
-        if (activeBuilding.isSomeoneInTheBuilding()&&!activeBuilding.getCharactersInBuilding().get(0).getIsInPrison()){
-            System.out.println("Nachází se zde " + activeBuilding.getCharactersInBuilding().get(0).getName());
-        }
-        else{
-            System.out.println("Nikdo tu není.");
-        }
+        op.writeWhoIsInTheBuilding(activeBuilding);
     }
 
     // changes the isInPrison boolean of a character and removes it from the suspect array
