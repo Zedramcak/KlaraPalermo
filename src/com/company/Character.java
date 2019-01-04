@@ -62,5 +62,4 @@ public class Character {
         return isWoman;
     }
 
-
 }

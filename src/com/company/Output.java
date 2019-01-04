@@ -237,4 +237,9 @@ public class Output {
         System.out.println();
         System.out.println("Šerif nechal vše tak jak bylo");
     }
+
+    public void writeOutro() {
+        System.out.println();
+        System.out.println("Hra bude nyní ukončena. Děkujeme, že jste si ji zahráli.");
+    }
 }

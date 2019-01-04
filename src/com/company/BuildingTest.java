@@ -80,8 +80,6 @@ public class BuildingTest {
         assertEquals(1, building.numberOfItems());
         building.addItem(item);
         assertEquals(2, building.numberOfItems());
-        building.removeIs;
-        assertEquals(2, building.numberOfItems());
 
     }
 

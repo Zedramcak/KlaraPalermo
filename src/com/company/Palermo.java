@@ -80,6 +80,8 @@ public class Palermo {
 
         }while (playTheGame);
 
+        op.writeOutro();
+
     }
 
 
@@ -281,13 +283,11 @@ public class Palermo {
     private void setNewActiveBuilding(){
         op.showConnectedBuildings(activeBuilding);
         int decision = userInput();
-<<<<<<< HEAD
-        while (decision>(activeBuilding.NumberOfConnectedBuilding()+1)||decision<1){
+        while (decision>(activeBuilding.numberOfConnectedBuilding()+1)||decision<1) {
             op.wrongInput();
-=======
+        }
         while (decision>(activeBuilding.numberOfConnectedBuilding()+1)||decision<1){
             System.err.println("Neplatná volba. Zadejte znovu, kam se má šerif vypravit");
->>>>>>> 9384d3297ed9c5bada6a8963825e65436cd1f47b
             decision = userInput();
         }
         if (decision==activeBuilding.numberOfConnectedBuilding()+1){
