@@ -135,11 +135,15 @@ public class Palermo {
             case 2:
                 if (hero.isSomethingInInventory()) {
                     System.out.println();
-                    opt.itemToBeTaken(activeBuilding,0);
+                    opt.listOfItemsInInventory(hero,0);
                     int removedItem = userInput();
-                    System.out.println();
-                    opt.itemToBeTaken(activeBuilding,1);
-                    Item NameOfRemovedItem = hero.getInventory().get(removedItem);
+
+                    while (removedItem < 1 || removedItem > hero.getInventory().size() + 1) {
+                        opt.wrongInput();
+                        removedItem = userInput();
+                    }
+
+                    Item NameOfRemovedItem = hero.getInventory().get(removedItem-1);
                     activeBuilding.addItem(NameOfRemovedItem);
                     hero.removeItemFromInventory(removedItem - 1);
                 } else {
@@ -224,7 +228,7 @@ public class Palermo {
                     opt.fullInventory();
                 }
                 else{
-                    opt.itemToken(activeBuilding, chosenItemToTake);
+                    opt.itemToken(activeBuilding, chosenItemToTake-1);
                     hero.addItemToInventory(activeBuilding.takeAnItem(chosenItemToTake));}
                 break;
             case 2:

@@ -130,8 +130,11 @@ public class Output {
         }
         else{
             System.out.println("Sherif is interested in these things");
-            for (Item item: activeBuilding.itemsInBuilding() ) {
-                System.out.print(item.getNameOfTheItem() + " " );
+            for (int i = 0; i < activeBuilding.itemsInBuilding().size(); i++) {
+                System.out.print(activeBuilding.itemsInBuilding().get(i).getNameOfTheItem());
+                if (i!=activeBuilding.itemsInBuilding().size()-1){
+                    System.out.print(", ");
+                }
             }
             System.out.println();
         }
