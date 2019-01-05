@@ -6,8 +6,8 @@ public class Killer extends Character{
     public Killer(Building whereCharacterLives) {
         super();
         name = "Pharmacist";
-        nameAbout = "Lékárnici";
-        answerToQuestion = "Já jsem to... eh... nebyla. JE TO KAMPAŇ!";
+        nameAbout = "Pharmacist";
+        answerToQuestion = "I ...emh...have not kill him.";
         isWoman = true;
         this.whereCharacterLives = whereCharacterLives;
     }

@@ -5,104 +5,82 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Palermo {
-//scenner aby to prijalo info zadane uzivatelem
     private Scanner input = new Scanner(System.in);
     private int dayCounter;
-    private Output op = new Output();
+    private Output opt = new Output();
 
     private Building activeBuilding;
 
     private ArrayList<Character> prison = new ArrayList<>();
     private ArrayList<Character> killableCharacters = new ArrayList<>();
-    //Initialize assets
-    private Building policejniStanice = new Building("Policejní stanice");
-    private Building radnice = new Building("Radnice");
-    private Building rybarna = new Building("Rybárna");
-    private Building lekarna = new Building("Lékárna");
-    private Building masna = new Building("Masna");
 
-    private Killer killer = new Killer(rybarna);
+    private Building policeStation = new Building("Police Station");
+    private Building townHall = new Building("Town hall");
+    private Building fishStore = new Building("Fish store");
+    private Building pharmacy = new Building("Pharmacy");
+    private Building butchery = new Building("Butchery");
+
+    private Killer killer = new Killer(pharmacy);
     private Hero hero = new Hero();
-    private Character reznik = new Character("Řezník", "Já jsem to nebyl", "Řezníkovi", false, masna);
-    private Character starosta = new Character("Starosta", "Já jsem to nebyl", "Starostovi", false, radnice);
-    private Character rybarka = new Character("Rybářka", "Já jsem to nebyla", "Rybářce", true, rybarna);
+    private Character butcher = new Character("Butcher", "I have not kill anyone", "Buthcer", false, butchery);
+    private Character mayor = new Character("Mayor", "I have not kill anyone", "Mayor", false, townHall);
+    private Character fisherman = new Character("Fisherman", "I have not kill anyone", "Fisherman", true, fishStore);
 
-    private Item mapaVztahu = new Item(
-            "podivný papír",
-            "Je na něm cosi, co vypadá jako mapa vztahů",
-            "Starosta + Starostka = manželé\n" +
-                    "Lékárnice + Starosta = Milenci\n" +
-                    "Řezník + Starostka = Milenci\n" +
-                    "Rybářka + Starostka = Sestry ");
+    private Item mapOfRelationships = new Item(
+            "strange paper",
+            "something like a map of relationships",
+            "mayor + mayors wife = married\n" +
+                    "pharmacist + mayor = lovers\n" +
+                    "butcher + mayors wife = lovers\n" +
+                    "fisherman + mayors wife = sisters ");
 
-    private Item nuz = new Item(
-            "nuz",
-            "zkrvaveny nuz, mozna vrazedna zbran",
-            "vrazedna zbran, nuz od starosticiny krve, bez otisku prstu");
-    private Item baterka = new Item(
-            "baterka",
-            "zajimava baterka",
-            "na baterce neni nic co by pomohlo s hledanim vraha");
-
-
+    private Item knife = new Item(
+            "knife",
+            "knife coverd with blood",
+            "nothing useful on this knife");
+    private Item battery = new Item(
+            "battery",
+            "interesting battery",
+            "nothing useful on this battery ");
 
 
-    // construct and start the game
+    /** construct and start the game
+     *
+     */
     public Palermo(){
-
-//ve stringu jednotlivá písmena jsou charaktery. aby se to spouštělo postupně to je metoda por string která převede string do pole charakterů
-
-        op.writeIntro();
-
+        opt.writeIntro();
         boolean playTheGame = true;
-
         do {
             setUpBuildings();
             setUpTown();
             while (hero.getIsAlive() && !killer.getIsInPrison()) {
-
-                op.newDay(dayCounter);
+                opt.newDay(dayCounter);
                 releaseFromPrison();
-
-                activeBuilding = policejniStanice;
-
+                activeBuilding = policeStation;
                 heroDecision();
-
                 if (!killer.getIsInPrison()) {
                     chooseWhoWillBeKilled();
                     dayCounter++;
                 }
             }
-
-            op.gameOverSummary(killer, dayCounter);
-
-            playTheGame = op.continuePlay();
-
+            opt.gameOverSummary(killer, dayCounter);
+            playTheGame = opt.continuePlay();
         }while (playTheGame);
-
-        op.writeOutro();
-
+        opt.writeOutro();
     }
 
-
-
-
-
+    /**first metode in the game let the player choose what to do next
+     *
+     */
     private void heroDecision(){
         boolean heroSendSomeoneToPrison=false;
-
         do{
-
-
-            op.mainDecision();
-
+            opt.mainDecision();
             int decision = userInput();
-
             while(decision<1||decision>4){
-                op.wrongInput();
+                opt.wrongInput();
                 decision = userInput();
             }
-//switch bere promenou konkretne decision a rozhoduje se co udela podle case a ten vzdy konci break!
             switch(decision){
                 case 1:
                     setNewActiveBuilding();
@@ -114,41 +92,35 @@ public class Palermo {
                     if (activeBuilding.isSomeoneInTheBuilding()) {
                         heroSendSomeoneToPrison = interactWithCharacters(activeBuilding.getCharactersInBuilding().get(0));
                     }else{
-
-                        op.emptyBuilidng();
+                        opt.emptyBuilidng();
                     }
                     break;
                 case 4:
                     exploreInventory();
                     break;
-
             }
-//while patrici k do jakmile nekoh posle do vezeni cyklus konci
         }while(!heroSendSomeoneToPrison);
     }
 
-
+    /**this metode take care of inventory add, look at and remove items
+     *
+     */
     private void exploreInventory() {
-
-        op.inventoryDecision();
+        opt.inventoryDecision();
         int decision = userInput();
         while (decision < 1 || decision > 2) {
-            op.wrongInput();
+            opt.wrongInput();
             decision = userInput();
         }
         switch (decision) {
             case 1:
                 if (hero.isSomethingInInventory()) {
-
-                    op.listOfItemsInInventory(hero, 1);
-
+                    opt.listOfItemsInInventory(hero, 1);
                     int thisItem = userInput();
                     while (thisItem < 1 || thisItem > hero.getInventory().size() + 1) {
-                        op.wrongInput();
+                        opt.wrongInput();
                         thisItem = userInput();
-
                     }
-//nahore definice dole co se dela
                     if (thisItem == (hero.getInventory().size() + 1)) {
                         System.out.println();
                     } else {
@@ -157,120 +129,112 @@ public class Palermo {
                     }
                 } else {
                     System.out.println();
-                    op.emptyInventory();
+                    opt.emptyInventory();
                 }
                 break;
             case 2:
                 if (hero.isSomethingInInventory()) {
                     System.out.println();
-
-                    op.listOfItemsInInventory(hero, 0);
+                    opt.itemToBeTaken(activeBuilding,0);
                     int removedItem = userInput();
-                    while (removedItem < 1 || removedItem > hero.getInventory().size() + 1) {
-                        op.wrongInput();
-                        removedItem = userInput();
-                    }
                     System.out.println();
-
+                    opt.itemToBeTaken(activeBuilding,1);
                     Item NameOfRemovedItem = hero.getInventory().get(removedItem);
                     activeBuilding.addItem(NameOfRemovedItem);
                     hero.removeItemFromInventory(removedItem - 1);
-
-                   //activeBuilding.addItem(item);
                 } else {
                     System.out.println();
-                    op.emptyInventory();
+                    opt.emptyInventory();
                 }
                 break;
 
         }
     }
 
-
+    /**this metode remove prisoner from prison, only if the prison is full, and add him back to his building.
+     *
+     */
     private void releaseFromPrison(){
         if (!prison.isEmpty()){
             Character prisoner = prison.get(0);
             prisoner.switchIsInPrison();
             activeBuilding.addCharacter(prisoner);
             prison.clear();
-
-            op.releaseFromPrisonOnTheNewDay(prisoner);
-
+            opt.releaseFromPrisonOnTheNewDay(prisoner);
         }
     }
 
-
+    /**this metode let player interact with characters and send to jail or interviewed.
+     *
+     * @param suspect
+     * @return
+     */
     private boolean interactWithCharacters(Character suspect){
-        op.interactDecision(suspect);
+        opt.interactDecision(suspect);
 
         int decision = userInput();
         while (decision<1||decision>3){
-            op.wrongInput();
+            opt.wrongInput();
             decision = userInput();
         }
         switch (decision){
             case 1:
-                op.interviewWithASuspect(suspect);
+                opt.interviewWithASuspect(suspect);
                 break;
-                //tady je to boolean aby fungoval hero decision
             case 2:
                 sendCharacterToJail(suspect);
                 return true;
             case 3:
                 break;
         }
-
         return false;
-
     }
 
+    /**if in the building are some items player can interact with them.
+     *
+     */
     private void itemsInBuilding(){
-        op.listItemsInTheBuilding(activeBuilding);
+        opt.listItemsInTheBuilding(activeBuilding);
         //kdyz je to boolean neumusim data se rovna porotze mam nastaveny vychozi a s tim se pocita
         if (activeBuilding.areThereItems()) {
-            op.buildingItemsDecision();
+            opt.buildingItemsDecision();
             int decision = userInput();
-
             while(decision<1||decision>3){
-                op.wrongInput();
+                opt.wrongInput();
                 decision = userInput();
             }
-
             interactWithAnItem(decision);
-
         }
     }
 
-    // interaction with an items in the building
+    /**here the player can look at or take the thing. Only if the inventory is not full.
+     *
+     * @param decision
+     */
     private void interactWithAnItem(int decision){
         switch (decision){
             case 1:
-                op.itemToBeTaken(activeBuilding, 1);
-
+                opt.itemToBeTaken(activeBuilding, 1);
                 int chosenItemToTake = userInput();
                 while (chosenItemToTake>=activeBuilding.numberOfItems()+1||chosenItemToTake<1){
-                    op.wrongInput();
+                    opt.wrongInput();
                     chosenItemToTake = userInput();
                 }
                 if( hero.sizeOfInventory() > 1) {
-
-                    op.fullInventory();
+                    opt.fullInventory();
                 }
                 else{
-                    op.itemToken(activeBuilding, chosenItemToTake);
+                    opt.itemToken(activeBuilding, chosenItemToTake);
                     hero.addItemToInventory(activeBuilding.takeAnItem(chosenItemToTake));}
                 break;
-
             case 2:
-                op.leaveItem();
+                opt.leaveItem();
                 break;
-
             case 3:
-                op.itemToBeTaken(activeBuilding, 0);
-
+                opt.itemToBeTaken(activeBuilding, 0);
                 int chosenItemToInspect = userInput();
                 while (chosenItemToInspect>=activeBuilding.numberOfItems()+1||chosenItemToInspect<1){
-                    op.wrongInput();
+                    opt.wrongInput();
                     chosenItemToInspect = userInput();
                 }
                 System.out.println(activeBuilding.itemsInBuilding().get(chosenItemToInspect-1).getDescriptionOfTheItemWhenFound()+"\n");
@@ -278,16 +242,17 @@ public class Palermo {
         }
     }
 
-
-    // method to change the active building. Making sure, that the input is correct
+    /**change the active building. To make sure, that the input is correct.
+     *
+     */
     private void setNewActiveBuilding(){
-        op.showConnectedBuildings(activeBuilding);
+        opt.showConnectedBuildings(activeBuilding);
         int decision = userInput();
         while (decision>(activeBuilding.numberOfConnectedBuilding()+1)||decision<1) {
-            op.wrongInput();
+            opt.wrongInput();
         }
         while (decision>(activeBuilding.numberOfConnectedBuilding()+1)||decision<1){
-            System.err.println("Neplatná volba. Zadejte znovu, kam se má šerif vypravit");
+            opt.wrongDecisionWhileMoving();
             decision = userInput();
         }
         if (decision==activeBuilding.numberOfConnectedBuilding()+1){
@@ -295,45 +260,51 @@ public class Palermo {
         }
         else{
             activeBuilding = activeBuilding.moveToConnectedBuilding(decision-1);
-            op.whereHeGoesNext(activeBuilding);
+            opt.whereHeGoesNext(activeBuilding);
             whoIsInTheBuilding();
         }
     }
 
-    // checks and inform if there is someone in the building
+
+    /**checks and inform if there is someone in the building.
+     *
+     */
     private void whoIsInTheBuilding(){
         System.out.println();
-        op.writeWhoIsInTheBuilding(activeBuilding);
+        opt.writeWhoIsInTheBuilding(activeBuilding);
     }
 
-    // changes the isInPrison boolean of a character and removes it from the suspect array
+    /**changes the isInPrison boolean of a character and removes it from the suspect array.
+     *
+     * @param potentialMurderer
+     */
     private void sendCharacterToJail(Character potentialMurderer){
         potentialMurderer.switchIsInPrison();
         System.out.println();
-        // change the sentence base on the gender
-        op.sendSomeoneToPrison(potentialMurderer);
-
+        opt.sendSomeoneToPrison(potentialMurderer);
         prison.add(potentialMurderer);
     }
 
-    // method to change the isAlive boolean of the character and removes it from the games arrays
+    /** method to change the isAlive boolean of the character and removes it from the games arrays.
+     *
+     * @param victim
+     */
     private void characterHasBeenKilled(Character victim){
-
         victim.kill();
         System.out.println();
         if (victim instanceof Hero) {
-            op.heroIsDead();
+            opt.heroIsDead();
             return;
         }
-        op.newDeadBody(victim);
-
+        opt.newDeadBody(victim);
         victim.whereCharacterLives.removeCharacterFromBuilding();
         killableCharacters.remove(victim);
     }
 
-
+    /**random choose who will be killed.
+     *
+     */
     private void chooseWhoWillBeKilled(){
-        //math je class javi floor zaokrouhluje dolu random vytvari nahodne cislo mezi 0 a 1 ato nasobi poctem characters
         int random = (int)Math.floor(Math.random()*killableCharacters.size());
         while (killableCharacters.get(random).getIsInPrison()){
             random = (int)Math.floor(Math.random()*killableCharacters.size());
@@ -341,26 +312,28 @@ public class Palermo {
         characterHasBeenKilled(killableCharacters.get(random));
     }
 
-    //methods to set up the game
+    /**methods to set up the game
+     *
+     */
     private void setUpTown(){
         dayCounter = 1;
-        activeBuilding = policejniStanice;
-        killableCharacters.addAll(Arrays.asList(reznik, rybarka, hero, starosta));
+        activeBuilding = policeStation;
+        killableCharacters.addAll(Arrays.asList(butcher, fisherman, hero, mayor));
     }
 
 
     private void addCharactersToBuildings(){
-        radnice.addCharacter(starosta);
-        rybarna.addCharacter(rybarka);
-        lekarna.addCharacter(killer);
-        masna.addCharacter(reznik);
+        townHall.addCharacter(mayor);
+        fishStore.addCharacter(fisherman);
+        pharmacy.addCharacter(killer);
+        butchery.addCharacter(butcher);
     }
 
 
     private void addItemsToBuilding(){
-        lekarna.addItem(mapaVztahu);
-        rybarna.addItem(nuz);
-        lekarna.addItem(baterka);
+        pharmacy.addItem(mapOfRelationships);
+        fishStore.addItem(knife);
+        pharmacy.addItem(battery);
     }
 
 
@@ -371,34 +344,35 @@ public class Palermo {
 
 
     private void setUpBuildings(){
-        setRouteBetweenBuildings(policejniStanice, radnice);
-        setRouteBetweenBuildings(policejniStanice, rybarna);
-        setRouteBetweenBuildings(policejniStanice, lekarna);
-        setRouteBetweenBuildings(policejniStanice, masna);
-        setRouteBetweenBuildings(radnice, lekarna);
-        setRouteBetweenBuildings(lekarna, masna);
-        setRouteBetweenBuildings(masna, rybarna);
+        setRouteBetweenBuildings(policeStation, townHall);
+        setRouteBetweenBuildings(policeStation, fishStore);
+        setRouteBetweenBuildings(policeStation, pharmacy);
+        setRouteBetweenBuildings(policeStation, butchery);
+        setRouteBetweenBuildings(townHall, pharmacy);
+        setRouteBetweenBuildings(pharmacy, butchery);
+        setRouteBetweenBuildings(butchery, fishStore);
         addCharactersToBuildings();
         addItemsToBuilding();
     }
 
 
-    //user input, set the return value to -1 if the input is not an integer
+    /**user input, set the return value to -1 if the input is not an integer.
+     *
+     * @return
+     */
     private int userInput(){
         try{
             String decision = input.nextLine();
 
-            if(decision.toLowerCase().equals("konec")){
+            if(decision.toLowerCase().equals("exit")){
                 System.exit(0);
             }
-            if (decision.toLowerCase().equals("napoveda")){
-                System.out.println("Vaším cílem je najít vraha starosty.\n" +
-                        "Pro spuštění nápovědy zadejte \"napoveda\"\n" +
-                        "Příkazy zadávejte pomocí čísel\n" +
-                        "Pro ukončení hry napište \"exit\"\n");
+            if (decision.toLowerCase().equals("hint")){
+                System.out.println("Your goal is to find a killer and send him/her to jail.\n" +
+                        "For playing the game use numbers.\n" +
+                        "Exit game with word \"exit\"\n");
                 return userInput();
             }
-
             return Integer.parseInt(decision);
         }catch (NumberFormatException e){
             return -1;

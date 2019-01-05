@@ -6,9 +6,10 @@ public class Output {
 
     Scanner sc = new Scanner(System.in);
 
-    private String intro1 = "Starostova manželka byla ráno nalezena mrtvá. Šerif si vytipoval několik možných pachatelů." +
-            " Podaří se mu najít vraha před tím, než si vrah najde jeho?\n";
-    private String intro2 = "Vítejte ve hře\n";
+    private String intro1 = "Mayors wife was found dead. " +
+            "Sherif needs to find out who is killer. But if he sends someone to jail and it is not killer, someone else will die." +
+            "Will he find the killer before the killer will finds him?\n";
+    private String intro2 = "Welcome in the game\n";
 
     public Output(){
 
@@ -38,93 +39,97 @@ public class Output {
     public void gameOverSummary(Killer killer, int dayCounter){
         if (killer.getIsInPrison()){
             if(dayCounter==1) {
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala k vraždě.");
+                System.out.println("In the jail " + killer.getName() + " she admitted to the murder.");
             }
             else if (dayCounter==2){
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala k oboum vraždám.");
+                System.out.println("In the jail " + killer.getName() + " she admitted to both murders");
             }
             else{
-                System.out.println("Ve vězení se " + killer.getName() + " přiznala ke všem " + dayCounter + " vraždám.");
+                System.out.println("In the jail " + killer.getName() + " she admitted to all " + dayCounter + " murders.");
             }
-            System.out.println("Gratulujeme! Podařilo se Vám vypátrat vraha.");
+            System.out.println("Congratulation you win!");
         }
         else{
-            System.out.println("Nepodařilo se Vám vypatrát pravého vyníka. Hra končí. Zkuste to znovu");
+            System.out.println("You did not find the killer. Game over");
         }
     }
 
     public boolean continuePlay() {
         System.out.println();
-        System.out.println("Přejete si hrát znovu?");
-        System.out.println("ano/ne");
+        System.out.println("Play again?");
+        System.out.println("yes/no");
         String decision = sc.nextLine();
-        while ( !decision.toLowerCase().equals("ano")&&!decision.toLowerCase().equals("ne") ){
-            System.err.println("Neplatná volba");
+        while ( !decision.toLowerCase().equals("yes")&&!decision.toLowerCase().equals("no") ){
+            System.err.println("invalid");
 
             decision = sc.nextLine();
         }
-        if (decision.toLowerCase().equals("ne"))
+        if (decision.toLowerCase().equals("no"))
             return false;
         else
             return true;
     }
 
     public void newDay(int dayCounter) {
-        System.out.println(dayCounter + ". den ráno přišel Šerif do své kanceláře na policejní stanici a rozhodoval se, co bude dělat.");
+        System.out.println(dayCounter + ". day sherif came to his office and were deciding what to do.");
     }
 
 
     public void releaseFromPrisonOnTheNewDay(Character prisoner) {
-        System.out.println("Bylo jisté, že vraždu v noci spáchal stejný pachatel jako vraždu starostky.");
-        System.out.println("To znamenalo, že osoba, která momentálně seděla v cele nemohla být hledaný vrah.");
+        System.out.println("The murder at night commited the same person like the murder of mayors wife");
+        System.out.println("It means that person in jail cannot be the killer.");
         if(prisoner.getGender()){
-            System.out.println(prisoner.getName() + " byla propuštěna z vězení");
+            System.out.println(prisoner.getName() + " she was released");
         }else {
-            System.out.println(prisoner.getName() + " byl propuštěn z vězení");
+            System.out.println(prisoner.getName() + " he was released");
         }
     }
 
     public void heroIsDead() {
-        System.out.println("Další ráno našli na policejní stanici mrtvého šerifa. Vrah vyhrál!");
+        System.out.println("Another day they found dead sherif at the station. Game over!");
     }
 
     public void newDeadBody(Character victim) {
-        System.out.println("Ráno se Palermo probudilo k dalšímu hrůznému činnu.\n" +
-                "Další obětí neznámého vraha je " + victim.getName());
+        System.out.println("Morning is here and something terrible happended again.\n" +
+                "Another victim is " + victim.getName());
     }
 
     public void sendSomeoneToPrison(Character potentialMurderer) {
         if (potentialMurderer.getGender()){
-            System.out.println("Na Šerifův rozkaz byla do vězení poslána " + potentialMurderer.getName());
+            System.out.println("Sherif sent to jail " + potentialMurderer.getName());
         }
         else {
-            System.out.println("Na Šerifův rozkaz byl do vězení poslán " + potentialMurderer.getName());
+            System.out.println("Sherif sent to jail " + potentialMurderer.getName());
         }
+    }
+
+    public void wrongDecisionWhileMoving(){
+        System.err.println("Invalid. Where shloud sherif go?");
     }
 
     public void writeWhoIsInTheBuilding(Building activeBuilding) {
         if (activeBuilding.isSomeoneInTheBuilding()&&!activeBuilding.getCharactersInBuilding().get(0).getIsInPrison()){
-            System.out.println("Nachází se zde " + activeBuilding.getCharactersInBuilding().get(0).getName());
+            System.out.println("Here is " + activeBuilding.getCharactersInBuilding().get(0).getName());
         }
         else{
-            System.out.println("Nikdo tu není.");
+            System.out.println("Noone is here.");
         }
     }
 
     public void whereHeGoesNext(Building activeBuilding) {
-        System.out.println("\nDalší šerifovou zastávkou byla " + activeBuilding.getNameOfTheBuilding() + "\n");
+        System.out.println("\nAnother sherifs stopover is " + activeBuilding.getNameOfTheBuilding() + "\n");
     }
 
 
     public void listItemsInTheBuilding(Building activeBuilding) {
         if (activeBuilding.itemsInBuilding().isEmpty()){
-            System.out.println("V budově není nic zajímavého");
+            System.out.println("In the building is nothing interesting.");
         }
         else if(activeBuilding.itemsInBuilding().size()==1){
-            System.out.println("Šerif si všiml že v místnosti je podezřele vypadající " + activeBuilding.itemsInBuilding().get(0).getNameOfTheItem());
+            System.out.println("Sherif noticed some interesting " + activeBuilding.itemsInBuilding().get(0).getNameOfTheItem());
         }
         else{
-            System.out.println("Šerifa zaujali tyto předměty");
+            System.out.println("Sherif is interested in these things");
             for (Item item: activeBuilding.itemsInBuilding() ) {
                 System.out.print(item.getNameOfTheItem() + " " );
             }
@@ -134,99 +139,99 @@ public class Output {
 
 
     public void itemToken(Building activeBuilding, int chosenItemToTake) {
-        System.out.println("Šerif si vzal " + activeBuilding.itemsInBuilding().get(chosenItemToTake).getNameOfTheItem());
+        System.out.println("sherif took " + activeBuilding.itemsInBuilding().get(chosenItemToTake).getNameOfTheItem());
     }
 
 
     public void showConnectedBuildings(Building activeBuilding) {
         System.out.println();
-        System.out.println("Šerif se odsud mohl vydat do těchto budov:");
+        System.out.println("Sherif can go to these buildings:");
         for (int i = 0; i < activeBuilding.getAccessibleBuildings().size(); i++) {
 
             System.out.printf("%d - %S\n",(i+1), activeBuilding.getAccessibleBuildings().get(i).getNameOfTheBuilding());
 
         }
-        System.out.println( activeBuilding.getAccessibleBuildings().size()+1 + " - zůstat na místě");
+        System.out.println( activeBuilding.getAccessibleBuildings().size()+1 + " - stay here");
     }
 
     public void wrongInput(){
-        System.err.println("Neplatná volba");
+        System.err.println("invalid");
     }
 
     public void mainDecision() {
         System.out.println();
-        System.out.println("Co se Šerif rozhodl udělat?");
-        System.out.println("1 - přesunout so do jiné budovy");
-        System.out.println("2 - porozhlédnout se po budově");
-        System.out.println("3 - promluvit si s obyvateli domu");
-        System.out.println("4 - prohlédnout si inventář");
+        System.out.println("What is sherifs decision?");
+        System.out.println("1 - move to another building");
+        System.out.println("2 - search the building");
+        System.out.println("3 - speak with resident");
+        System.out.println("4 - check inventory");
     }
 
     public void emptyBuilidng() {
         System.out.println();
-        System.out.println("Nikdo z podezřelých tu není.");
+        System.out.println("Noone is here.");
     }
 
     public void inventoryDecision() {
         System.out.println();
         System.out.println(
-                "Jaké byly jeho další kroky?\n" +
-                        "1 - Prohlednout si veci v inventari\n" +
-                        "2 - Odebrat vec z inventare");
+                "What is his next step?\n" +
+                        "1 - To look at items in inventory\n" +
+                        "2 - remove item form inventory");
     }
 
     public void listOfItemsInInventory(Hero hero, int io){
         System.out.println();
         if (io == 1) {
-            System.out.println("Který předmět si Šerif prohlédl?");
+            System.out.println("which item does he look at?");
         }
         else {
-            System.out.println("Který předmět chcete odebrat?");
+            System.out.println("Which item do you want to remove?");
         }
         for (int i = 0; i < hero.getInventory().size(); i++) {
             System.out.println((i+1)+" - "+hero.getInventory().get(i).getNameOfTheItem());
         }
-        System.out.println((hero.getInventory().size() + 1) + " - Žádný");
+        System.out.println((hero.getInventory().size() + 1) + " - Nothing");
     }
 
     public void emptyInventory() {
-        System.out.println("Inventář je prázdný");
+        System.out.println("inventory is empty");
     }
 
     public void interactDecision(Character suspect) {
         System.out.println();
-        System.out.println("Šerif přistoupil k "+suspect.getNameAbout()+"\n");
+        System.out.println("Sherif came to the resident "+suspect.getNameAbout()+"\n");
         System.out.println(
-                "Jaké byly jeho další kroky?\n" +
-                        "1 - Výslech\n" +
-                        "2 - Poslat do vězení\n" +
-                        "3 - Nechat být");
+                "What is his next step?\n" +
+                        "1 - Interviewed\n" +
+                        "2 - Send to jail\n" +
+                        "3 - Nothing");
     }
 
     public void interviewWithASuspect(Character suspect) {
-        System.out.println("Šerif: Co mi můžete říct o té vraždě?");
+        System.out.println("Sherif: What can you say about the murder of mayors wife?");
         System.out.println(suspect.getName() + ": " + suspect.getAnswerToQuestion() + "\n");
     }
 
     public void buildingItemsDecision() {
         System.out.println();
-        System.out.println("Co se rozhodl Šerif udělat?");
-        System.out.println("1 - vzít si některý z předmětů\n" +
-                "2 - nechat předměty být\n" +
-                "3 - prohlédnout si předměty");
+        System.out.println("What is sherifs next step?");
+        System.out.println("1 - took some items\n" +
+                "2 - let the items be\n" +
+                "3 - look at items");
     }
 
     public void fullInventory() {
-        System.err.println("Inventar je plny, nejdrive z inventare neco odeberte") ;
+        System.err.println("Inventory is full, first you need to remove something") ;
     }
 
-    public void itemToBeTaken(Building activeBuilding, int io) {
+    public void itemToBeTaken(Building activeBuilding, int deci) {
         System.out.println();
-        if (io == 1) {
-            System.out.println("Který předmět si Šerif prohlédl?");
+        if (deci == 1) {
+            System.out.println("Which item does sherif look at?");
         }
         else {
-            System.out.println("Co si Šerif vzal?");
+            System.out.println("What sherif took?");
         }
         for (int i = 0; i < activeBuilding.numberOfItems(); i++) {
             System.out.printf("%d - %S\n",(i+1), activeBuilding.itemsInBuilding().get(i).getNameOfTheItem());
@@ -235,11 +240,11 @@ public class Output {
 
     public void leaveItem() {
         System.out.println();
-        System.out.println("Šerif nechal vše tak jak bylo");
+        System.out.println("sherif let everyting be.");
     }
 
     public void writeOutro() {
         System.out.println();
-        System.out.println("Hra bude nyní ukončena. Děkujeme, že jste si ji zahráli.");
+        System.out.println("Game will be ended now. Thank you for playing.");
     }
 }

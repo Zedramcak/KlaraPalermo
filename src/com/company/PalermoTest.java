@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
@@ -19,12 +20,11 @@ public class PalermoTest {
     
     @Test
     public void addingItemsToBuildingTest(){
-        Building b1 = new Building("b1");
+        Building bd1 = new Building("bd1");
         
-        b1.addItem(new Item("smt", "smt", "smt"));
+        bd1.addItem(new Item("smt", "smt", "smt"));
         
-        assertEquals(1, b1.numberOfItems());
+        assertEquals(1, bd1.numberOfItems());
     }
 
-
-}
+   }

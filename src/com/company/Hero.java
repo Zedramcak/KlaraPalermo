@@ -9,7 +9,7 @@ public class Hero extends Character{
 
     public Hero(){
         super();
-        name = "Šerif";
+        name = "Sherif";
         inventory = new ArrayList<Item>();
     }
 
